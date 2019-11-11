@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>欢迎使用正方教务管理系统！请登录</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="all" />
+    <meta name="author" content="作者信息" />
+    <meta name="Copyright" content="版权信息" />
+    <meta name="description" content="站点介绍" />
+    <meta name="keywords" content="站点关键词" />
+    <meta name="referrer" content="never">
+    <link rel="icon" type="image/x-icon" href="style/4.0.0.1/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="style/4.0.0.1/images/favicon.ico" />
+    
+    <link rel="stylesheet" type="text/css" href="style/4.0.0.1/css/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="style/4.0.0.1/css/Loginstyle.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="style/4.0.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style/4.0.0.1/font-awesome-4.7.0/css/font-awesome.min.css" />
+      <script type="text/javascript" src="/style/4.0.0.1/js/jquery.min.js"></script>
+    <script type="text/javascript" src="style/4.0.0.1/js/browser/browser-judge.js"></script>
+   
+    
+    <script type="text/javascript">
+        detectOS();
+        var count = 0;
+        var tx;
+        var pwd;
+        function show(me) {
+            if (count == 0) {
+                me.value = "";
+            }
+        }
+        function reloadcode() {
+            var verify = document.getElementById('icode');
+            verify.src = verify.src + '?';
+        }
+        function keydown(me) {
+            if (count == 0) {
+                me.value = "";
+                count = 1;
+                me.style.color = "black";
+            }
+        }
+        function yzblur(me) {
+            if (me.value == "") {
+                //me.value="请输入验证码";
+                //me.style.color="#92a4bf";
+                count = 0;
+            }
+        }
+        //-->
+        function CheckBeginData() {
+            //检查用户名是否为空
+            if ($("#txtUserName").val().trim() == "") {
+                $("#txtUserName").focus();
+                alert("用户名不能为空，请输入！");
+
+                return false;
+            }
+            if ($("#TextBox2").val().trim() == "") {
+                $("#TextBox2").focus();
+                alert("密码不能为空，请输入！");
+                return false;
+            }
+            if ($("#txtSecretCode").val().trim() == "") {
+                $("#txtSecretCode").focus();
+                alert("验证码不能为空，请输入！");
+                return false;
+            }
+            return true;
+
+        }
+    </script>
+    <script>
+	    $(function(){
+		    if($(window).height()>(780 + 65)){
+			    $('.login-container').find('.login-foot').css('line-height',$(window).height() - 780 - 40 + 'px' )
+		    }else{
+			    $('.login-container').find('.login-blk').css('height',$(window).height() - 65 )
+		    }
+	    })
+    </script>
+    <style type="text/css">
+        .fangshua {
+            COLOR: red;
+            FONT-SIZE: 14px;
+            FONT-WEIGHT: bold
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+
+        <div class="login-blk clearfix">
+       <div class="logo hidden-xs">
+            <img src="logo/logo_school.png" alt="学校logo" />
+            <p>教务管理系统</p>
+        </div>
+        <div class="login-sec">
+
+            <h2 class="login-tit">用户登录</h2>
+            <div class="login-form">
+                <form name="form1" method="post" action="./" id="form1" role="form">
+<div>
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="MEz1spDXwwLux/VvyQ019Qfu9k2kWlyPMtI1cpI6By8VsAmWi+JEtEjVUXVTKyYjg4e7K75vkSiIy+yePTpNbk3TChg=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZLl6AvmFRVjI9G8EjGcsWrPLkzFUxPtPMg9HIYdXKljQpBoulg2&amp;t=637039487819362791" type="text/javascript"></script>
+
+
+<script src="/WebResource.axd?d=JoBkLzP19aTuxbWOhHobYiY4_g8lqxvAUtbXwVvhfNW2etOguHigk-uCeNVotySDVkaPmQ2&amp;t=637039487819362791" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9BD98A7D" />
+	<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+	<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+</div>
+                      
+                    <!-- <h3>登录</h3> -->
+                    <div class="form-group">
+                        <div class="acpssec">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="txtUserName" type="text" maxlength="32" id="txtUserName" tabindex="1" autocomplete="off" class="form-control" name="yhm" placeholder="用户名" />
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input name="TextBox2" type="password" maxlength="20" id="TextBox2" tabindex="2" name="mm" autocomplete="off" class="form-control" placeholder="密码" />
+                            </div>
+                            <div class="input-group input-group-jym">
+                                <span class="input-group-addon"><i class="fa fa-shield"></i></span>
+                                <input name="txtSecretCode" type="text" id="txtSecretCode" tabindex="3" onblur="yzblur(this);" onkeydown="keydown(this);" class="form-control" placeholder="验证码" onfocus="show(this);" title="看不清，换一张" alt="看不清，换一张" />
+                                <div class="jympic">
+                                    <img id="icode" title="看不清换一张" onclick="reloadcode();" alt="看不清换一张" src="CheckCode.aspx" src="" style="border-width:0px;" /></div>
+                                
+                                
+                            </div>
+
+                            <div class="input-group input-group-jsxx">
+                                <table id="RadioButtonList1" class="formline login-radio clearfix" border="0">
+	<tr>
+		<td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" value="部门" tabindex="4" /><label for="RadioButtonList1_0">部门</label></td><td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" value="教师" tabindex="4" /><label for="RadioButtonList1_1">教师</label></td><td><input id="RadioButtonList1_2" type="radio" name="RadioButtonList1" value="学生" checked="checked" tabindex="4" /><label for="RadioButtonList1_2">学生</label></td><td><input id="RadioButtonList1_3" type="radio" name="RadioButtonList1" value="访客" tabindex="4" /><label for="RadioButtonList1_3">访客</label></td>
+	</tr>
+</table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-btn">
+                        <input type="submit" name="Button1" value="登录" onclick="return CheckBeginData();" id="Button1" tabindex="5" class="btn btn-primary btn-block" />
+                        
+                            
+                        <div class="login-tag">
+                            <span><a href="mmcz.aspx" id="linkForget" class="checkbox pull-right " target="_blank">忘记密码</a></span><!--  | <span><a href="">注册</a></span> -->
+                        </div>
+                    </div>
+                
+
+<script type="text/javascript">
+//<![CDATA[
+WebForm_AutoFocus('txtUserName');//]]>
+</script>
+</form>
+            </div>
+        </div>
+        </div>
+        <div class="login-foot" style="display:none;">
+            版权所有@正方软件股份有限公司&nbsp;&nbsp;<br class="mbr">
+            浙江省杭州市西湖区紫霞街176号互联网创新创业园&nbsp;&nbsp;
+        </div>
+
+        
+    </div>
+
+</body>
+</html>
