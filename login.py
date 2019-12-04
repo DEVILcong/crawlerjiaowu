@@ -47,7 +47,7 @@ class login:
         获取验证码，保存在工作目录
         '''
         dest = ''.join((self._httpStr, self._url2))
-        dest = ''.join((dest, '/CheckCode.aspx'))
+        dest = ''.join((dest, 'CheckCode.aspx'))
 
         headers = self._headersCheckCode
         headers['Cookie'] = self._Cookie
@@ -88,9 +88,12 @@ class login:
         request = urllib.request.Request(url = dest, headers = headers)
         response = urllib.request.urlopen(request, data = formDataFin)
 
-        #print(headers)
-        #print(response.read().decode('utf8'))
-        #print(response.geturl())
+        if response.geturl() == self._url2:
+            print('登录失败，退出...')
+            sys.exit()
+        
+        pat = '"(xskbcx.+?)"'
+        self._urlTable = re.findall(pat, str(response.read()))[0]
 
     def outPut(self):
         '''
@@ -99,6 +102,8 @@ class login:
         print(self._Cookie)
         print(self._viewstat)
         print(self._viewstatGen)
+
+
 
     
 
@@ -142,8 +147,9 @@ class login:
     
     _userName = ''
     _password = ''
-    _url1 = 'jw.ahu.cn'
+    _url1 = 'jw.ahu.ConnectionError'
     _url2 = 'jwxt3.ahu.edu.cn'
+    _urlTable = ''
     _httpStr = 'https://'
     _Cookie = ''
     _viewstat = ''
