@@ -47,7 +47,7 @@ class login:
         获取验证码，保存在工作目录
         '''
         dest = ''.join((self._httpStr, self._url2))
-        dest = ''.join((dest, 'CheckCode.aspx'))
+        dest = ''.join((dest, '/CheckCode.aspx'))
 
         headers = self._headersCheckCode
         headers['Cookie'] = self._Cookie
@@ -92,8 +92,29 @@ class login:
             print('登录失败，退出...')
             sys.exit()
         
+        self._urlMain = response.geturl()
         pat = '"(xskbcx.+?)"'
         self._urlTable = re.findall(pat, str(response.read()))[0]
+    
+    def getTable(self):
+        url = 'https://' + self._url2 + '/' + self._urlTable
+        
+        headers = self._headersPage
+        headers['Accept'] = r'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        headers['Accept-Language'] = r'en-US,en;q=0.5'
+        headers['Cookie'] = self._Cookie
+        headers['DNT'] = '1'
+        headers['Host'] = self._url2
+        headers['Referer'] = self._urlMain
+        headers.pop('Content-Type')
+        headers.pop('Content-Length')
+        
+        print(headers)
+        headers = urllib.request.Request(url, headers = headers)
+        response = urllib.request.urlopen(headers, timeout = 4)
+        testF = open('testT', 'w')
+        testF.write(response.read().decode())
+        testF.close()
 
     def outPut(self):
         '''
@@ -103,9 +124,6 @@ class login:
         print(self._viewstat)
         print(self._viewstatGen)
 
-
-
-    
 
     _headersPage = {
         'Accept':r'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -147,7 +165,7 @@ class login:
     
     _userName = ''
     _password = ''
-    _url1 = 'jw.ahu.ConnectionError'
+    _urlMain = ''
     _url2 = 'jwxt3.ahu.edu.cn'
     _urlTable = ''
     _httpStr = 'https://'

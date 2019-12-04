@@ -3,8 +3,9 @@
 
 from login import login
 
-test = login('', '')
+test = login('E31714036', 'Lyc43374835@')
 test.getHidden()
 test.getCheckCode()
 test.postData()
-test.outPut()
+test.getTable()
+#test.outPut()
