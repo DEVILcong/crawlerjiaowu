@@ -3,7 +3,7 @@
 
 from login import login
 
-test = login('E31714036', 'Lyc43374835@')
+test = login('', '')
 test.getHidden()
 test.getCheckCode()
 test.postData()
