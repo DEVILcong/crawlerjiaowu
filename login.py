@@ -5,6 +5,7 @@ import re
 import sys
 import os.path
 from PIL import Image
+import getTableFile
 
 class login:
 
@@ -95,8 +96,13 @@ class login:
         self._urlMain = response.geturl()
         pat = '"(xskbcx.+?)"'
         self._urlTable = re.findall(pat, str(response.read()))[0]
+
+        print('登录成功，获取课程表链接成功')
     
     def getTable(self):
+        '''
+        获取课程表网页源代码
+        '''
         url = 'https://' + self._url2 + '/' + self._urlTable
         
         headers = self._headersPage
@@ -109,12 +115,18 @@ class login:
         headers.pop('Content-Type')
         headers.pop('Content-Length')
         
-        print(headers)
+        #print(headers)
         headers = urllib.request.Request(url, headers = headers)
         response = urllib.request.urlopen(headers, timeout = 4)
         testF = open('testT', 'w')
         testF.write(response.read().decode())
         testF.close()
+
+    def getClassTable(self):
+        '''
+        得到课程表的CSV文件
+        '''
+        getTableFile.getTable('testT')
 
     def outPut(self):
         '''
@@ -123,7 +135,6 @@ class login:
         print(self._Cookie)
         print(self._viewstat)
         print(self._viewstatGen)
-
 
     _headersPage = {
         'Accept':r'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
