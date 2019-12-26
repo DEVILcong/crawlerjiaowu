@@ -49,14 +49,14 @@ def getTable(fileLoc):
         i.pop(0)
 
     order = 1
-    br = classes[0][0].contents[1]
+    #br = classes[0][0].contents[1]
     for period in classes:
         for oneClass in period:
             classList = []
             classContent = oneClass.contents
 
             for i in classContent:
-                if i != br:
+                if str(i) != '<br/>':
                     classList.append(str(i))
             classList = '\n'.join(classList)
 
